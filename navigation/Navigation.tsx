@@ -13,6 +13,7 @@ import {
   WomenCategory,
   KidsCategory,
   MenCategory,
+  AllCategories,
 } from "../screens";
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -28,6 +29,7 @@ const HomeNavigation = () => {
       <HomeStack.Screen name="MenCategory" component={MenCategory} />
       <HomeStack.Screen name="WomenCategory" component={WomenCategory} />
       <HomeStack.Screen name="KidsCategory" component={KidsCategory} />
+      <HomeStack.Screen name="AllCategories" component={AllCategories} />
     </HomeStack.Navigator>
   );
 };

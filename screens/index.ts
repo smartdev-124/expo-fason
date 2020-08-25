@@ -6,3 +6,4 @@ export { default as GetStarted } from "./GetStarted";
 export { default as WomenCategory } from "./WomenCategory";
 export { default as MenCategory } from "./MenCategory";
 export { default as KidsCategory } from "./KidsCategory";
+export { default as AllCategories } from "./AllCategories";

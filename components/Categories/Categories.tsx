@@ -13,19 +13,19 @@ const categories: Category[] = [
   {
     name: "Woman",
     screen: "WomenCategory",
-    color: "rgba(102, 106, 234, 0.5)",
+    color: "rgba(102, 106, 234, 0.7)",
     image: require("../../assets/images/women.png"),
   },
   {
     name: "Man",
     screen: "MenCategory",
-    color: "rgba(255, 88, 88, 0.5)",
+    color: "rgba(255, 88, 88, 0.7)",
     image: require("../../assets/images/men.png"),
   },
   {
     name: "Kids",
     screen: "KidsCategory",
-    color: "rgba(67, 233, 123, 0.5)",
+    color: "rgba(67, 233, 123, 0.7)",
     image: require("../../assets/images/kids.png"),
   },
 ];
@@ -35,7 +35,10 @@ const Categories = ({ navigation }: CategoriesProps) => {
     <View style={styles.container}>
       <View style={styles.row}>
         <Text variant="medium">Categories</Text>
-        <TouchableOpacity activeOpacity={0.8}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate("AllCategories")}
+        >
           <Text variant="small">See all</Text>
         </TouchableOpacity>
       </View>

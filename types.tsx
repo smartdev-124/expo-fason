@@ -14,6 +14,7 @@ export type HomeStackParamList = {
   WomenCategory: undefined;
   Featured: undefined;
   BestSell: undefined;
+  AllCategories: undefined;
 };
 
 export interface Category {
