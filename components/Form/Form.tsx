@@ -14,6 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { grey } from "../../constants/Colors";
 import Text from "../Text";
 import { Button } from "../Buttons";
+import { CommonActions } from "@react-navigation/native";
 
 interface FormProps {
   navigation: StackNavigationProp<RootStackParamList, "SignIn" | "SignUp">;
@@ -57,7 +58,14 @@ const Form = ({ navigation, signup }: FormProps) => {
         </View>
         <Button
           label={signup ? "Sign up" : "Log in"}
-          onPress={() => navigation.navigate("Main")}
+          onPress={() =>
+            navigation.dispatch(
+              CommonActions.reset({
+                index: 1,
+                routes: [{ name: "Main" }],
+              })
+            )
+          }
           style={{ width: "100%", marginTop: 50 }}
         />
         <View style={styles.row}>
