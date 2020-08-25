@@ -1,3 +1,5 @@
+import { ImageRequireSource } from "react-native";
+
 export type RootStackParamList = {
   GetStarted: undefined;
   SignIn: undefined;
@@ -18,4 +20,5 @@ export interface Category {
   name: string;
   screen: keyof HomeStackParamList;
   color: string;
+  image: ImageRequireSource;
 }

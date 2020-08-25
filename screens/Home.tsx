@@ -3,10 +3,10 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import { white } from "../constants/Colors";
 import { Text, MainHeader, Searchbar, Categories } from "../components";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { StackScreenProps } from "@react-navigation/stack";
+import { HomeStackParamList } from "../types";
 
-interface HomeProps {}
-
-const Home = (props: HomeProps) => {
+const Home = ({ navigation }: StackScreenProps<HomeStackParamList, "Home">) => {
   const { top: height } = useSafeAreaInsets();
   return (
     <>
@@ -14,7 +14,7 @@ const Home = (props: HomeProps) => {
       <ScrollView style={{ backgroundColor: white }}>
         <MainHeader />
         <Searchbar />
-        <Categories />
+        <Categories navigation={navigation} />
       </ScrollView>
     </>
   );

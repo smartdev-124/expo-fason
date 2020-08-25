@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { Category, HomeStackParamList } from "../../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RectButton } from "react-native-gesture-handler";
@@ -14,12 +14,22 @@ interface CategoryCardProps {
 const CARD_HEIGHT = 75;
 
 const CategoryCard = ({ category, navigation, first }: CategoryCardProps) => {
-  const { screen, name, color } = category;
+  const { screen, name, color, image } = category;
   return (
     <RectButton
       onPress={() => navigation.navigate(screen)}
       style={{ ...styles.container, marginLeft: first ? 20 : 0 }}
     >
+      <Image
+        source={image}
+        resizeMode="cover"
+        style={{
+          flex: 1,
+          height: undefined,
+          width: undefined,
+          borderRadius: 5,
+        }}
+      />
       <View style={{ ...styles.overlay, backgroundColor: color }}>
         <Text weight="medium" color="white">
           {name}
@@ -34,7 +44,7 @@ export default CategoryCard;
 const styles = StyleSheet.create({
   container: {
     height: CARD_HEIGHT,
-    width: CARD_HEIGHT * 2,
+    width: CARD_HEIGHT * 2.16,
     borderRadius: 5,
     elevation: 3,
     marginRight: 20,
