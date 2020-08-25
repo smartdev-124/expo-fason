@@ -4,3 +4,18 @@ export type RootStackParamList = {
   SignUp: undefined;
   Main: undefined;
 };
+
+export type HomeStackParamList = {
+  Home: undefined;
+  MenCategory: undefined;
+  KidsCategory: undefined;
+  WomenCategory: undefined;
+  Featured: undefined;
+  BestSell: undefined;
+};
+
+export interface Category {
+  name: string;
+  screen: keyof HomeStackParamList;
+  color: string;
+}

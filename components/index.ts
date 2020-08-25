@@ -3,3 +3,5 @@ export { Button, TransparentButton } from "./Buttons";
 export { Form } from "./Form";
 export { MainHeader } from "./Headers";
 export { default as Searchbar } from "./Searchbar";
+export { Categories } from "./Categories";
+export { CategoryCard } from "./Cards";

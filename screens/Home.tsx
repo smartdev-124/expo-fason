@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { white } from "../constants/Colors";
-import { Text, MainHeader, Searchbar } from "../components";
+import { Text, MainHeader, Searchbar, Categories } from "../components";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface HomeProps {}
@@ -14,6 +14,7 @@ const Home = (props: HomeProps) => {
       <ScrollView style={{ backgroundColor: white }}>
         <MainHeader />
         <Searchbar />
+        <Categories />
       </ScrollView>
     </>
   );
