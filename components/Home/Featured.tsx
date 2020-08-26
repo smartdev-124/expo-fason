@@ -4,7 +4,7 @@ import Text from "../Text";
 import { HomeStackParamList } from "../../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { ProductCard } from "../Cards";
-import { men, women } from "../../data/products";
+import { men, women, featured } from "../../data/products";
 
 interface FeaturedProps {
   navigation: StackNavigationProp<HomeStackParamList, "Home">;
@@ -23,7 +23,7 @@ const Featured = ({ navigation }: FeaturedProps) => {
         </TouchableOpacity>
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {[women[0], women[1], men[0]].map((product, index) => (
+        {featured.slice(0, 3).map((product, index) => (
           <ProductCard
             navigation={navigation}
             key={index}
