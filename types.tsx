@@ -26,4 +26,10 @@ export interface Category {
 
 export type DrawerParamList = {
   Home: undefined;
+  Profile: undefined;
+  MyCart: undefined;
+  Favorite: undefined;
+  MyOrders: undefined;
+  Language: undefined;
+  Settings: undefined;
 };

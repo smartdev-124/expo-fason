@@ -19,7 +19,15 @@ import {
   KidsCategory,
   MenCategory,
   AllCategories,
+  Profile,
+  Cart,
+  Orders,
+  Favorites,
+  Language,
+  Settings,
 } from "../screens";
+import { width } from "../constants/Layout";
+import { CustomDrawer } from "../components";
 
 const RootStack = createStackNavigator<RootStackParamList>();
 const HomeStack = createStackNavigator<HomeStackParamList>();
@@ -42,8 +50,17 @@ const HomeNavigation = () => {
 
 const DrawerNavigation = () => {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      drawerStyle={{ width }}
+      drawerContent={(props) => <CustomDrawer props={props} />}
+    >
       <Drawer.Screen name="Home" component={HomeNavigation} />
+      <Drawer.Screen name="Profile" component={Profile} />
+      <Drawer.Screen name="MyCart" component={Cart} />
+      <Drawer.Screen name="Favorite" component={Favorites} />
+      <Drawer.Screen name="MyOrders" component={Orders} />
+      <Drawer.Screen name="Language" component={Language} />
+      <Drawer.Screen name="Settings" component={Settings} />
     </Drawer.Navigator>
   );
 };

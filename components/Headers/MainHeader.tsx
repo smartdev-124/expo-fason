@@ -57,13 +57,12 @@ const styles = StyleSheet.create({
   },
   menuIcon: {
     width: 35,
-    height: 35,
-    // backgroundColor: "red",
+    height: 32,
     justifyContent: "space-evenly",
   },
   line: {
-    height: 4,
-    borderRadius: 4,
+    height: 3,
+    borderRadius: 3,
     backgroundColor: black,
   },
 });
