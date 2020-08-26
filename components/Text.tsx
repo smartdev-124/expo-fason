@@ -1,12 +1,12 @@
 import React, { ReactNode } from "react";
 import { Text as RNText, TextStyle, TextProps } from "react-native";
-import { black, white, grey } from "../constants/Colors";
+import { black, white, grey, blue } from "../constants/Colors";
 
 interface Props extends TextProps {
   children: ReactNode;
   style?: TextStyle;
-  color?: "black" | "grey" | "white";
-  size?: "big" | "medium" | "regular" | "small";
+  color?: "black" | "grey" | "white" | "blue";
+  size?: "big" | "medium" | "regular" | "small" | "tiny";
   weight?: "regular" | "bold" | "semi-bold" | "medium";
 }
 
@@ -33,6 +33,9 @@ const Text = ({
     case "small":
       fontSize = 20;
       break;
+    case "tiny":
+      fontSize = 16;
+      break;
     default:
       break;
   }
@@ -46,6 +49,9 @@ const Text = ({
       break;
     case "grey":
       color = grey;
+      break;
+    case "blue":
+      color = blue;
       break;
     default:
       break;

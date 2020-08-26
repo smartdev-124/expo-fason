@@ -1,7 +1,13 @@
 import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { white } from "../constants/Colors";
-import { Text, MainHeader, Searchbar, Categories } from "../components";
+import {
+  Text,
+  MainHeader,
+  Searchbar,
+  Categories,
+  Discount,
+} from "../components";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
 import { HomeStackParamList } from "../types";
@@ -14,6 +20,7 @@ const Home = ({ navigation }: StackScreenProps<HomeStackParamList, "Home">) => {
       <ScrollView style={{ backgroundColor: white }}>
         <MainHeader />
         <Searchbar />
+        <Discount navigation={navigation} />
         <Categories navigation={navigation} />
       </ScrollView>
     </>
