@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   line: {
-    height: 3,
-    borderRadius: 3,
+    height: StyleSheet.hairlineWidth * 4,
+    borderRadius: 6,
     backgroundColor: black,
   },
 });

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, ScrollView, Image } from "react-native";
 import { white, lightgrey, blue } from "../constants/Colors";
 import { Text, BackHeader } from "../components";
@@ -9,7 +9,7 @@ import { height } from "../constants/Layout";
 import { RectButton } from "react-native-gesture-handler";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-interface ProductProps {}
+const sizes = ["S", "M", "L", "XXL"];
 
 const Product = ({
   navigation,
@@ -17,6 +17,7 @@ const Product = ({
 }: StackScreenProps<HomeStackParamList, "Product">) => {
   const { top: height } = useSafeAreaInsets();
   const { details, image, name, price } = route.params.product;
+  const [activeSizeIndex, setActiveSizeIndex] = useState<number>(1);
   return (
     <>
       <View style={{ height, backgroundColor: white }} />
@@ -75,6 +76,41 @@ const Product = ({
             Select Size
           </Text>
           <View style={styles.separator} />
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: 20,
+            }}
+          >
+            {sizes.map((size, index) => (
+              <RectButton
+                style={{
+                  ...styles.size,
+                  backgroundColor: activeSizeIndex === index ? blue : lightgrey,
+                }}
+                key={index}
+                onPress={() => setActiveSizeIndex(index)}
+              >
+                <Text color={activeSizeIndex === index ? "white" : "black"}>
+                  {size}
+                </Text>
+              </RectButton>
+            ))}
+          </View>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <RectButton style={{ ...styles.button, backgroundColor: lightgrey }}>
+            <Text color="black" style={{ textTransform: "uppercase" }}>
+              add to cart
+            </Text>
+          </RectButton>
+          <RectButton style={styles.button}>
+            <Text color="white" style={{ textTransform: "uppercase" }}>
+              buy now
+            </Text>
+          </RectButton>
         </View>
       </ScrollView>
     </>
@@ -86,10 +122,10 @@ export default Product;
 const styles = StyleSheet.create({
   image: {
     width: "100%",
-    height: height / 3,
+    height: height / 4,
   },
   separator: {
-    height: 1,
+    height: StyleSheet.hairlineWidth * 2,
     width: "100%",
     backgroundColor: lightgrey,
     marginVertical: 3,
@@ -105,5 +141,23 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderRadius: 5,
     backgroundColor: blue,
+  },
+  size: {
+    width: 50,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 3,
+    marginHorizontal: 10,
+    elevation: 2,
+  },
+  button: {
+    width: "50%",
+    height: 60,
+    backgroundColor: blue,
+    alignItems: "center",
+    justifyContent: "center",
+    marginVertical: 30,
+    elevation: 2,
   },
 });
