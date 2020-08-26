@@ -6,24 +6,24 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { ProductCard } from "../Cards";
 import { men, women } from "../../data/products";
 
-interface FeaturedProps {
+interface BestSellProps {
   navigation: StackNavigationProp<HomeStackParamList, "Home">;
 }
 
-const Featured = ({ navigation }: FeaturedProps) => {
+const BestSell = ({ navigation }: BestSellProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text size="medium">Featured</Text>
+        <Text size="medium">BestSell</Text>
         <TouchableOpacity
           activeOpacity={0.8}
-          onPress={() => navigation.navigate("Featured")}
+          onPress={() => navigation.navigate("BestSell")}
         >
           <Text size="small">See all</Text>
         </TouchableOpacity>
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {[women[0], women[1], men[0]].map((product, index) => (
+        {[women[2], women[1], men[0]].map((product, index) => (
           <ProductCard
             navigation={navigation}
             key={index}
@@ -36,7 +36,7 @@ const Featured = ({ navigation }: FeaturedProps) => {
   );
 };
 
-export default Featured;
+export default BestSell;
 
 const styles = StyleSheet.create({
   container: {

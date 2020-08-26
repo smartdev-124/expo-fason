@@ -14,3 +14,4 @@ export { default as Orders } from "./Orders";
 export { default as Language } from "./Language";
 export { default as Settings } from "./Settings";
 export { default as Featured } from "./Featured";
+export { default as BestSell } from "./BestSell";

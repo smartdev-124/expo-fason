@@ -7,6 +7,7 @@ import {
   Categories,
   Discount,
   Featured,
+  BestSell,
 } from "../components";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
@@ -20,9 +21,10 @@ const Home = ({ navigation }: StackScreenProps<HomeStackParamList, "Home">) => {
       <ScrollView style={{ backgroundColor: white }}>
         <MainHeader />
         <Searchbar />
-        <Discount navigation={navigation} />
         <Categories navigation={navigation} />
+        <Discount navigation={navigation} />
         <Featured navigation={navigation} />
+        <BestSell navigation={navigation} />
       </ScrollView>
     </>
   );
