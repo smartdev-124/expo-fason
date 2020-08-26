@@ -15,6 +15,7 @@ export type HomeStackParamList = {
   Featured: undefined;
   BestSell: undefined;
   AllCategories: undefined;
+  Product: { product: ProductProps };
 };
 
 export interface Category {
@@ -33,3 +34,11 @@ export type DrawerParamList = {
   Language: undefined;
   Settings: undefined;
 };
+
+export interface ProductProps {
+  id: string;
+  name: string;
+  price: number;
+  count: number;
+  image: ImageRequireSource;
+}

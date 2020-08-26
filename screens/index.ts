@@ -13,3 +13,4 @@ export { default as Favorites } from "./Favorites";
 export { default as Orders } from "./Orders";
 export { default as Language } from "./Language";
 export { default as Settings } from "./Settings";
+export { default as Featured } from "./Featured";

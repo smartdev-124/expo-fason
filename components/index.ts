@@ -5,5 +5,5 @@ export { default as Discount } from "./Discount";
 export { Button, TransparentButton } from "./Buttons";
 export { Form } from "./Form";
 export { MainHeader, BackHeader } from "./Headers";
-export { Categories } from "./Categories";
+export { Categories, Featured } from "./Home";
 export { CategoryCard } from "./Cards";

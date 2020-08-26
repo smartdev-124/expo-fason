@@ -25,6 +25,8 @@ import {
   Favorites,
   Language,
   Settings,
+  Product,
+  Featured,
 } from "../screens";
 import { width } from "../constants/Layout";
 import { CustomDrawer } from "../components";
@@ -44,6 +46,8 @@ const HomeNavigation = () => {
       <HomeStack.Screen name="WomenCategory" component={WomenCategory} />
       <HomeStack.Screen name="KidsCategory" component={KidsCategory} />
       <HomeStack.Screen name="AllCategories" component={AllCategories} />
+      <HomeStack.Screen name="Featured" component={Featured} />
+      <HomeStack.Screen name="Product" component={Product} />
     </HomeStack.Navigator>
   );
 };
