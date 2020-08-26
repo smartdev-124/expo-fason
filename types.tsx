@@ -41,4 +41,5 @@ export interface ProductProps {
   price: number;
   count: number;
   image: ImageRequireSource;
+  details: string;
 }
