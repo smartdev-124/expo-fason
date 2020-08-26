@@ -3,8 +3,13 @@ import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
-import { RootStackParamList, HomeStackParamList } from "../types";
+import {
+  RootStackParamList,
+  HomeStackParamList,
+  DrawerParamList,
+} from "../types";
 import {
   GetStarted,
   SignIn,
@@ -18,6 +23,7 @@ import {
 
 const RootStack = createStackNavigator<RootStackParamList>();
 const HomeStack = createStackNavigator<HomeStackParamList>();
+const Drawer = createDrawerNavigator<DrawerParamList>();
 
 const HomeNavigation = () => {
   return (
@@ -34,6 +40,14 @@ const HomeNavigation = () => {
   );
 };
 
+const DrawerNavigation = () => {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeNavigation} />
+    </Drawer.Navigator>
+  );
+};
+
 const RootNavigation = () => {
   return (
     <RootStack.Navigator
@@ -43,7 +57,7 @@ const RootNavigation = () => {
       <RootStack.Screen name="GetStarted" component={GetStarted} />
       <RootStack.Screen name="SignIn" component={SignIn} />
       <RootStack.Screen name="SignUp" component={SignUp} />
-      <RootStack.Screen name="Main" component={HomeNavigation} />
+      <RootStack.Screen name="Main" component={DrawerNavigation} />
     </RootStack.Navigator>
   );
 };

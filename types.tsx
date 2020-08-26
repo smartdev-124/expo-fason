@@ -20,6 +20,10 @@ export type HomeStackParamList = {
 export interface Category {
   name: string;
   screen: keyof HomeStackParamList;
-  color: string;
+  colors: string[];
   image: ImageRequireSource;
 }
+
+export type DrawerParamList = {
+  Home: undefined;
+};

@@ -6,21 +6,21 @@ interface Props extends TextProps {
   children: ReactNode;
   style?: TextStyle;
   color?: "black" | "grey" | "white";
-  variant?: "big" | "medium" | "regular" | "small";
+  size?: "big" | "medium" | "regular" | "small";
   weight?: "regular" | "bold" | "semi-bold" | "medium";
 }
 
 const Text = ({
   children,
   style,
-  variant = "regular",
+  size = "regular",
   weight = "regular",
   color: textColor = "black",
   ...props
 }: Props) => {
   let fontSize, color, fontFamily;
 
-  switch (variant) {
+  switch (size) {
     case "big":
       fontSize = 34;
       break;

@@ -29,10 +29,10 @@ const Form = ({ navigation, signup }: FormProps) => {
         <BorderlessButton style={styles.backButton}>
           <Ionicons name="md-arrow-round-back" color={grey} size={26} />
         </BorderlessButton>
-        <Text variant="big">{signup ? "Sign up" : "Log in"}</Text>
+        <Text size="big">{signup ? "Sign up" : "Log in"}</Text>
         {signup && (
           <View style={{ ...styles.inputContainer, marginTop: 40 }}>
-            <Text variant="small" color="grey">
+            <Text size="small" color="grey">
               Name
             </Text>
             <View style={styles.textInputContainer}>
@@ -41,7 +41,7 @@ const Form = ({ navigation, signup }: FormProps) => {
           </View>
         )}
         <View style={{ ...styles.inputContainer, marginTop: 40 }}>
-          <Text variant="small" color="grey">
+          <Text size="small" color="grey">
             Email
           </Text>
           <View style={styles.textInputContainer}>
@@ -49,7 +49,7 @@ const Form = ({ navigation, signup }: FormProps) => {
           </View>
         </View>
         <View style={{ ...styles.inputContainer, marginTop: 40 }}>
-          <Text variant="small" color="grey">
+          <Text size="small" color="grey">
             Password
           </Text>
           <View style={styles.textInputContainer}>
@@ -69,14 +69,14 @@ const Form = ({ navigation, signup }: FormProps) => {
           style={{ width: "100%", marginTop: 50 }}
         />
         <View style={styles.row}>
-          <Text variant="small" color="grey">
+          <Text size="small" color="grey">
             {signup ? "Already have an account?" : "Don't have an account?"}
           </Text>
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => navigation.navigate(signup ? "SignIn" : "SignUp")}
           >
-            <Text variant="small">{signup ? " Sign in" : " Sign Up"}</Text>
+            <Text size="small">{signup ? " Sign in" : " Sign Up"}</Text>
           </TouchableOpacity>
         </View>
       </View>
