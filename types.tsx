@@ -28,6 +28,15 @@ export type HomeStackParamList = {
   Product: { product: ProductProps };
 };
 
+export type CartStackParamList = {
+  Cart: undefined;
+  Address: undefined;
+  AddAddress: undefined;
+  Payment: undefined;
+  Checkout: undefined;
+  Confirmation: undefined;
+};
+
 export interface Category {
   name: string;
   screen: keyof HomeStackParamList;

@@ -15,3 +15,8 @@ export { default as Language } from "./Language";
 export { default as Settings } from "./Settings";
 export { default as Featured } from "./Featured";
 export { default as BestSell } from "./BestSell";
+export { default as Confirmation } from "./Confirmation";
+export { default as Address } from "./Address";
+export { default as AddAddress } from "./AddAddress";
+export { default as Checkout } from "./Checkout";
+export { default as Payment } from "./Payment";

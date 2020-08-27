@@ -4,10 +4,12 @@ import { Text, BackHeader, CartCard, Button } from "../components";
 import { white } from "../constants/Colors";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useAppContext } from "../context/Context";
+import { StackScreenProps } from "@react-navigation/stack";
+import { CartStackParamList } from "../types";
 
 interface CartProps {}
 
-const Cart = (props: CartProps) => {
+const Cart = ({ navigation }: StackScreenProps<CartStackParamList, "Cart">) => {
   const { top: height } = useSafeAreaInsets();
   const { cart } = useAppContext();
   return (
@@ -38,7 +40,10 @@ const Cart = (props: CartProps) => {
       </ScrollView>
       {cart.length > 0 && (
         <View style={styles.buttonContainer}>
-          <Button label="Continue" onPress={() => console.log("dfgh")} />
+          <Button
+            label="Continue"
+            onPress={() => navigation.navigate("Address")}
+          />
         </View>
       )}
     </>
