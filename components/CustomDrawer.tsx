@@ -43,11 +43,7 @@ const CustomDrawer = ({
             key={index}
             style={styles.item}
           >
-            <Animated.Text
-              style={{ ...styles.text, transform: [{ translateY }] }}
-            >
-              {label}
-            </Animated.Text>
+            <Animated.Text style={{ ...styles.text }}>{label}</Animated.Text>
           </TouchableOpacity>
         );
       })}
@@ -69,7 +65,7 @@ const styles = StyleSheet.create({
     paddingBottom: 70,
   },
   item: {
-    marginVertical: height > 600 ? 10 : 5,
+    marginVertical: height > 600 ? 15 : 10,
   },
   closeIcon: {
     position: "absolute",

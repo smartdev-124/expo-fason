@@ -1,5 +1,15 @@
 import { ImageRequireSource } from "react-native";
 
+export interface AppContext {
+  cart: ProductProps[];
+  manageCart: (
+    action: "ADD" | "REMOVE" | "EMPTY" | "INCREASE" | "DECREASE",
+    payload?: ProductProps
+  ) => void;
+  isProductInCart: (product: ProductProps) => boolean;
+  cartTotal: number;
+}
+
 export type RootStackParamList = {
   GetStarted: undefined;
   SignIn: undefined;
@@ -40,6 +50,7 @@ export interface ProductProps {
   name: string;
   price: number;
   count: number;
+  total: number;
   image: ImageRequireSource;
   details: string;
 }

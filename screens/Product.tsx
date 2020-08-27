@@ -8,6 +8,7 @@ import { HomeStackParamList } from "../types";
 import { height } from "../constants/Layout";
 import { RectButton } from "react-native-gesture-handler";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useAppContext } from "../context/Context";
 
 const sizes = ["S", "M", "L", "XXL"];
 
@@ -16,7 +17,9 @@ const Product = ({
   route,
 }: StackScreenProps<HomeStackParamList, "Product">) => {
   const { top: height } = useSafeAreaInsets();
-  const { details, image, name, price } = route.params.product;
+  const { isProductInCart, manageCart } = useAppContext();
+  const { product } = route.params;
+  const { details, image, name, price } = product;
   const [activeSizeIndex, setActiveSizeIndex] = useState<number>(1);
   return (
     <>
@@ -101,13 +104,39 @@ const Product = ({
           </View>
         </View>
         <View style={{ flexDirection: "row" }}>
-          <RectButton style={{ ...styles.button, backgroundColor: lightgrey }}>
-            <Text color="black" style={{ textTransform: "uppercase" }}>
-              add to cart
-            </Text>
-          </RectButton>
+          {isProductInCart(product) ? (
+            <RectButton
+              onPress={() => manageCart("REMOVE", product)}
+              style={{ ...styles.button, backgroundColor: lightgrey }}
+            >
+              <Text
+                size="small"
+                color="black"
+                style={{ textTransform: "uppercase" }}
+              >
+                remove from cart
+              </Text>
+            </RectButton>
+          ) : (
+            <RectButton
+              onPress={() => manageCart("ADD", product)}
+              style={{ ...styles.button, backgroundColor: lightgrey }}
+            >
+              <Text
+                size="small"
+                color="black"
+                style={{ textTransform: "uppercase" }}
+              >
+                add to cart
+              </Text>
+            </RectButton>
+          )}
           <RectButton style={styles.button}>
-            <Text color="white" style={{ textTransform: "uppercase" }}>
+            <Text
+              size="small"
+              color="white"
+              style={{ textTransform: "uppercase" }}
+            >
               buy now
             </Text>
           </RectButton>
@@ -122,7 +151,8 @@ export default Product;
 const styles = StyleSheet.create({
   image: {
     width: "100%",
-    height: height / 4,
+    height: height / 3.5,
+    borderRadius: 5,
   },
   separator: {
     height: StyleSheet.hairlineWidth * 2,
