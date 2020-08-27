@@ -151,7 +151,7 @@ export default Product;
 const styles = StyleSheet.create({
   image: {
     width: "100%",
-    height: height / 3.5,
+    height: height / 2,
     borderRadius: 5,
   },
   separator: {

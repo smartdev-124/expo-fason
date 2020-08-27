@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
-import { Text, BackHeader } from "../components";
+import { Text, BackHeader, CartCard } from "../components";
 import { white } from "../constants/Colors";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useAppContext } from "../context/Context";
@@ -20,7 +20,7 @@ const Cart = (props: CartProps) => {
             Cart
           </Text>
           {cart.map((product, index) => (
-            <Text key={index}>{product.name}</Text>
+            <CartCard product={product} key={index} first={index === 0} />
           ))}
         </View>
       </ScrollView>
