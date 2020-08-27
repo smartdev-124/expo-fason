@@ -49,7 +49,12 @@ const CartCard = ({ product, first }: CartCardProps) => {
           >
             <Ionicons name="ios-remove" color={grey} size={30} />
           </TouchableOpacity>
-          <Text size="small" color="grey" style={{ marginHorizontal: 5 }}>
+          <Text
+            size="small"
+            color="grey"
+            weight="medium"
+            style={{ marginHorizontal: 5 }}
+          >
             {count}
           </Text>
           <TouchableOpacity

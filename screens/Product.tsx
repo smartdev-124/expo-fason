@@ -17,7 +17,12 @@ const Product = ({
   route,
 }: StackScreenProps<HomeStackParamList, "Product">) => {
   const { top: height } = useSafeAreaInsets();
-  const { isProductInCart, manageCart } = useAppContext();
+  const {
+    isProductInCart,
+    manageCart,
+    isProductInFavourites,
+    manageFavourites,
+  } = useAppContext();
   const { product } = route.params;
   const { details, image, name, price } = product;
   const [activeSizeIndex, setActiveSizeIndex] = useState<number>(1);
@@ -110,7 +115,8 @@ const Product = ({
               style={{ ...styles.button, backgroundColor: lightgrey }}
             >
               <Text
-                size="small"
+                size="tiny"
+                weight="medium"
                 color="black"
                 style={{ textTransform: "uppercase" }}
               >
@@ -123,7 +129,8 @@ const Product = ({
               style={{ ...styles.button, backgroundColor: lightgrey }}
             >
               <Text
-                size="small"
+                size="tiny"
+                weight="medium"
                 color="black"
                 style={{ textTransform: "uppercase" }}
               >
@@ -131,15 +138,35 @@ const Product = ({
               </Text>
             </RectButton>
           )}
-          <RectButton style={styles.button}>
-            <Text
-              size="small"
-              color="white"
-              style={{ textTransform: "uppercase" }}
+          {isProductInFavourites(product) ? (
+            <RectButton
+              onPress={() => manageFavourites("REMOVE", product)}
+              style={styles.button}
             >
-              buy now
-            </Text>
-          </RectButton>
+              <Text
+                size="tiny"
+                weight="medium"
+                color="white"
+                style={{ textTransform: "uppercase" }}
+              >
+                remove from favourites
+              </Text>
+            </RectButton>
+          ) : (
+            <RectButton
+              onPress={() => manageFavourites("ADD", product)}
+              style={styles.button}
+            >
+              <Text
+                size="tiny"
+                weight="medium"
+                color="white"
+                style={{ textTransform: "uppercase" }}
+              >
+                add to favourites
+              </Text>
+            </RectButton>
+          )}
         </View>
       </ScrollView>
     </>

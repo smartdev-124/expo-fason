@@ -1,22 +1,12 @@
 import React from "react";
-import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
-import { HomeStackParamList, ProductProps } from "../../types";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import { ProductProps } from "../../types";
 import Text from "../Text";
 import { width } from "../../constants/Layout";
+import { useNavigation } from "@react-navigation/native";
 
 interface ProductCardProps {
   product: ProductProps;
-  navigation: StackNavigationProp<
-    HomeStackParamList,
-    | "Home"
-    | "AllCategories"
-    | "Featured"
-    | "BestSell"
-    | "KidsCategory"
-    | "MenCategory"
-    | "WomenCategory"
-  >;
   first?: boolean;
   noMarginRight?: boolean;
 }
@@ -24,13 +14,9 @@ interface ProductCardProps {
 const IMAGE_WIDTH = width * 0.42;
 const IMAGE_HEIGHT = IMAGE_WIDTH * 1.2;
 
-const ProductCard = ({
-  product,
-  navigation,
-  first,
-  noMarginRight,
-}: ProductCardProps) => {
+const ProductCard = ({ product, first, noMarginRight }: ProductCardProps) => {
   const { name, price, image } = product;
+  const navigation = useNavigation();
 
   return (
     <TouchableOpacity

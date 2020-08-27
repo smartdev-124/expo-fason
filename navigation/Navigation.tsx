@@ -10,6 +10,7 @@ import {
   HomeStackParamList,
   DrawerParamList,
   CartStackParamList,
+  FavoriteStackParamList,
 } from "../types";
 import {
   GetStarted,
@@ -41,7 +42,20 @@ import { CustomDrawer } from "../components";
 const RootStack = createStackNavigator<RootStackParamList>();
 const HomeStack = createStackNavigator<HomeStackParamList>();
 const CartStack = createStackNavigator<CartStackParamList>();
+const FavoritesStack = createStackNavigator<FavoriteStackParamList>();
 const Drawer = createDrawerNavigator<DrawerParamList>();
+
+const FavoritesNavigation = () => {
+  return (
+    <FavoritesStack.Navigator
+      headerMode="none"
+      screenOptions={{ ...TransitionPresets.SlideFromRightIOS }}
+    >
+      <FavoritesStack.Screen name="Favorite" component={Favorites} />
+      <FavoritesStack.Screen name="Product" component={Product} />
+    </FavoritesStack.Navigator>
+  );
+};
 
 const CartNavigation = () => {
   return (
@@ -86,7 +100,7 @@ const DrawerNavigation = () => {
       <Drawer.Screen name="Home" component={HomeNavigation} />
       <Drawer.Screen name="Profile" component={Profile} />
       <Drawer.Screen name="MyCart" component={CartNavigation} />
-      <Drawer.Screen name="Favorite" component={Favorites} />
+      <Drawer.Screen name="Favorite" component={FavoritesNavigation} />
       <Drawer.Screen name="MyOrders" component={Orders} />
       <Drawer.Screen name="Language" component={Language} />
       <Drawer.Screen name="Settings" component={Settings} />

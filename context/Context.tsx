@@ -3,8 +3,11 @@ import { AppContext, ProductProps } from "../types";
 
 const Context = createContext<AppContext>({
   cart: [],
+  favourites: [],
   manageCart: () => {},
+  manageFavourites: () => {},
   isProductInCart: () => false,
+  isProductInFavourites: () => false,
   cartTotal: 0,
 });
 
@@ -14,6 +17,7 @@ interface Props {
 
 const Provider = ({ children }: Props) => {
   const [cart, setCart] = useState<ProductProps[]>([]);
+  const [favourites, setFavourites] = useState<ProductProps[]>([]);
   const [cartTotal, setCartTotal] = useState<number>(0);
 
   useEffect(() => {
@@ -28,7 +32,7 @@ const Provider = ({ children }: Props) => {
 
   const manageCart = (action: string, product?: ProductProps) => {
     let tempCart: ProductProps[] = [];
-    let updatedProduct: ProductProps | any = {};
+    let updatedProduct: ProductProps = {};
     let updatedProductIndex = 0;
     switch (action) {
       case "ADD":
@@ -36,6 +40,7 @@ const Provider = ({ children }: Props) => {
           return;
         }
         product!.count = 1;
+        product!.total = product!.price;
         setCart([...cart, product!]);
         break;
       case "REMOVE":
@@ -84,11 +89,39 @@ const Provider = ({ children }: Props) => {
     return false;
   };
 
+  const manageFavourites = (action: string, product: ProductProps) => {
+    switch (action) {
+      case "ADD":
+        if (isProductInFavourites(product)) {
+          return;
+        }
+        setFavourites([...favourites, product]);
+        break;
+      case "REMOVE":
+        setFavourites(
+          favourites.filter((favourite) => favourite.id !== product.id)
+        );
+        break;
+      default:
+        break;
+    }
+  };
+
+  const isProductInFavourites = (product: ProductProps) => {
+    if (favourites.find((item) => item.id === product.id)) {
+      return true;
+    }
+    return false;
+  };
+
   const state: AppContext = {
     cart,
     cartTotal,
     manageCart,
     isProductInCart,
+    isProductInFavourites,
+    favourites,
+    manageFavourites,
   };
   return <Context.Provider value={state}>{children}</Context.Provider>;
 };

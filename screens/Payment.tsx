@@ -1,6 +1,12 @@
-import React from "react";
-import { View, StyleSheet, ScrollView, Animated, Image } from "react-native";
-import { Text, BackHeader, Button, DottedButton } from "../components";
+import React, { useEffect } from "react";
+import { View, StyleSheet, ScrollView, Image } from "react-native";
+import {
+  Text,
+  BackHeader,
+  Button,
+  DottedButton,
+  OrderSummary,
+} from "../components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { CartStackParamList } from "../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -14,6 +20,7 @@ const Payment = ({
   navigation,
 }: StackScreenProps<CartStackParamList, "Payment">) => {
   const { top: height, bottom } = useSafeAreaInsets();
+
   return (
     <>
       <View style={{ height, backgroundColor: white }} />
@@ -23,7 +30,7 @@ const Payment = ({
           Payment
         </Text>
         <View style={styles.cards}>
-          <Animated.ScrollView
+          <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
             snapToInterval={ITEM_WIDTH}
@@ -40,11 +47,16 @@ const Payment = ({
               { name: "last", image: null },
             ].map(({ image }, index) => {
               if (index === 0 || index === 4) {
-                return <View style={{ width: (width - ITEM_WIDTH) / 2 }} />;
+                return (
+                  <View
+                    key={index}
+                    style={{ width: (width - ITEM_WIDTH) / 2 }}
+                  />
+                );
               }
               return (
                 <View key={index} style={styles.imageContainer}>
-                  <Animated.Image
+                  <Image
                     source={image}
                     style={styles.cardImage}
                     resizeMode="contain"
@@ -52,7 +64,10 @@ const Payment = ({
                 </View>
               );
             })}
-          </Animated.ScrollView>
+          </ScrollView>
+        </View>
+        <View style={{ width: "100%", padding: 20 }}>
+          <OrderSummary />
         </View>
       </ScrollView>
       <View style={{ ...styles.buttons }}>
