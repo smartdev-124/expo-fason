@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -15,6 +15,7 @@ import { grey } from "../../constants/Colors";
 import Text from "../Text";
 import { Button } from "../Buttons";
 import { CommonActions } from "@react-navigation/native";
+import TextField from "./TextField";
 
 interface FormProps {
   navigation: StackNavigationProp<RootStackParamList, "SignIn" | "SignUp">;
@@ -23,6 +24,9 @@ interface FormProps {
 
 const Form = ({ navigation, signup }: FormProps) => {
   const { top: paddingTop } = useSafeAreaInsets();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [name, setName] = useState<string>("");
   return (
     <ScrollView>
       <View style={{ ...styles.container, paddingTop }}>
@@ -30,32 +34,9 @@ const Form = ({ navigation, signup }: FormProps) => {
           <Ionicons name="md-arrow-round-back" color={grey} size={26} />
         </BorderlessButton>
         <Text size="big">{signup ? "Sign up" : "Log in"}</Text>
-        {signup && (
-          <View style={{ ...styles.inputContainer, marginTop: 40 }}>
-            <Text size="small" color="grey">
-              Name
-            </Text>
-            <View style={styles.textInputContainer}>
-              <TextInput style={styles.textInput} />
-            </View>
-          </View>
-        )}
-        <View style={{ ...styles.inputContainer, marginTop: 40 }}>
-          <Text size="small" color="grey">
-            Email
-          </Text>
-          <View style={styles.textInputContainer}>
-            <TextInput style={styles.textInput} />
-          </View>
-        </View>
-        <View style={{ ...styles.inputContainer, marginTop: 40 }}>
-          <Text size="small" color="grey">
-            Password
-          </Text>
-          <View style={styles.textInputContainer}>
-            <TextInput style={styles.textInput} secureTextEntry />
-          </View>
-        </View>
+        {signup && <TextField name="name" value={name} setValue={setName} />}
+        <TextField name="email" value={email} setValue={setEmail} />
+        <TextField name="password" value={password} setValue={setPassword} />
         <Button
           label={signup ? "Sign up" : "Log in"}
           onPress={() =>

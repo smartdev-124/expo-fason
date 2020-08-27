@@ -4,7 +4,7 @@ export { default as CustomDrawer } from "./CustomDrawer";
 export { default as Discount } from "./Discount";
 export { default as OrderSummary } from "./OrderSummary";
 export { Button, TransparentButton, DottedButton } from "./Buttons";
-export { Form } from "./Form";
+export { Form, TextField } from "./Form";
 export { MainHeader, BackHeader } from "./Headers";
 export { Categories, Featured, BestSell } from "./Home";
 export { CategoryCard, ProductCard, CartCard, OrderCard } from "./Cards";
