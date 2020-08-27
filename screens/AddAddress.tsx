@@ -15,12 +15,13 @@ const AddAddress = ({
       <View style={{ height, backgroundColor: white }} />
       <ScrollView style={{ backgroundColor: white }}>
         <BackHeader />
-        <Text size="big" weight="medium">
-          AddAddress
-        </Text>
-        <View style={styles.container}></View>
+        <View style={styles.container}>
+          <Text size="big" weight="medium">
+            Create Address
+          </Text>
+        </View>
       </ScrollView>
-      <View style={{ ...styles.buttons, paddingBottom: bottom * 2 }}>
+      <View style={styles.buttons}>
         <Button label="Add address" onPress={navigation.goBack} />
       </View>
     </>
@@ -38,5 +39,7 @@ const styles = StyleSheet.create({
     width: "100%",
     bottom: 0,
     left: 0,
+    backgroundColor: white,
+    paddingBottom: 20,
   },
 });

@@ -1,10 +1,14 @@
 import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
-import { Text, BackHeader, Button } from "../components";
+import { View, StyleSheet, ScrollView, Animated, Image } from "react-native";
+import { Text, BackHeader, Button, DottedButton } from "../components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { CartStackParamList } from "../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { white } from "../constants/Colors";
+import { paymentCards } from "../data/paymentcards";
+import { width } from "../constants/Layout";
+
+const ITEM_WIDTH = width * 0.8;
 
 const Payment = ({
   navigation,
@@ -15,13 +19,44 @@ const Payment = ({
       <View style={{ height, backgroundColor: white }} />
       <ScrollView style={{ backgroundColor: white }}>
         <BackHeader />
-        <View style={styles.container}>
-          <Text size="big" weight="medium">
-            Payment
-          </Text>
+        <Text size="big" weight="medium" style={{ marginLeft: 20 }}>
+          Payment
+        </Text>
+        <View style={styles.cards}>
+          <Animated.ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            snapToInterval={ITEM_WIDTH}
+            snapToAlignment="center"
+            decelerationRate="fast"
+            contentContainerStyle={{
+              height: 250,
+              alignItems: "center",
+            }}
+          >
+            {[
+              { name: "first", image: null },
+              ...paymentCards,
+              { name: "last", image: null },
+            ].map(({ image }, index) => {
+              if (index === 0 || index === 4) {
+                return <View style={{ width: (width - ITEM_WIDTH) / 2 }} />;
+              }
+              return (
+                <View key={index} style={styles.imageContainer}>
+                  <Animated.Image
+                    source={image}
+                    style={styles.cardImage}
+                    resizeMode="contain"
+                  />
+                </View>
+              );
+            })}
+          </Animated.ScrollView>
         </View>
       </ScrollView>
       <View style={{ ...styles.buttons }}>
+        <DottedButton label="Add Card" onPress={() => {}} />
         <Button
           label="Checkout"
           onPress={() => navigation.navigate("Checkout")}
@@ -44,5 +79,16 @@ const styles = StyleSheet.create({
     left: 0,
     backgroundColor: white,
     paddingBottom: 20,
+  },
+  imageContainer: {
+    width: ITEM_WIDTH,
+    alignItems: "center",
+  },
+  cardImage: {
+    width: ITEM_WIDTH * 0.92,
+    height: ITEM_WIDTH * 0.92,
+  },
+  cards: {
+    height: 250,
   },
 });

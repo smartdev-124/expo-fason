@@ -4,7 +4,7 @@ import Text from "../Text";
 import { HomeStackParamList } from "../../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { CategoryCard } from "../Cards";
-import { categories } from "../../data/categories";
+import { categories } from "../../data/categories.ts";
 
 interface CategoriesProps {
   navigation: StackNavigationProp<HomeStackParamList, "Home">;
