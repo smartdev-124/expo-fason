@@ -63,3 +63,9 @@ export interface ProductProps {
   image: ImageRequireSource;
   details: string;
 }
+
+export interface Address {
+  name: string;
+  house: string;
+  road: string;
+}
