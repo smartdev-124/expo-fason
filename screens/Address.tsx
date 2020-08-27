@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
-import { Text, BackHeader, Button } from "../components";
+import { Text, BackHeader, Button, DottedButton } from "../components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { CartStackParamList } from "../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -22,6 +22,10 @@ const Address = ({
         </View>
       </ScrollView>
       <View style={styles.buttons}>
+        <DottedButton
+          label="Add Address"
+          onPress={() => navigation.navigate("AddAddress")}
+        />
         <Button
           label="Continue to payment"
           onPress={() => navigation.navigate("Payment")}
