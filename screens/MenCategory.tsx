@@ -18,7 +18,7 @@ const MenCategory = ({}: StackScreenProps<
       <ScrollView style={{ backgroundColor: white }}>
         <BackHeader />
         <Text size="big" style={{ marginLeft: 20, marginBottom: 20 }}>
-          Men Category
+          Men's Category
         </Text>
         <View style={styles.content}>
           {[...men, ...men].map((product, index) => (

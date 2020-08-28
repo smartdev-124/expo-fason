@@ -20,7 +20,7 @@ const Cart = ({ navigation }: StackScreenProps<CartStackParamList, "Cart">) => {
             Cart
           </Text>
           {cart.length > 0 ? (
-            <View>
+            <View style={{ paddingBottom: 90 }}>
               {cart.map((product, index) => (
                 <CartCard product={product} key={index} first={index === 0} />
               ))}
