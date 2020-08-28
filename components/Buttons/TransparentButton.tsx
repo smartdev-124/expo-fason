@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, ViewStyle } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { width } from "../../constants/Layout";
-import { white, black } from "../../constants/Colors";
+import { black } from "../../constants/Colors";
 
 interface TransparentButtonProps {
   label: string | number;

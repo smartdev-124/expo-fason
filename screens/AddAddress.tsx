@@ -6,9 +6,7 @@ import { white } from "../constants/Colors";
 import { StackScreenProps } from "@react-navigation/stack";
 import { CartStackParamList } from "../types";
 
-const AddAddress = ({
-  navigation,
-}: StackScreenProps<CartStackParamList, "AddAddress">) => {
+const AddAddress = ({}: StackScreenProps<CartStackParamList, "AddAddress">) => {
   const { top: height } = useSafeAreaInsets();
   const [address, setAddress] = useState<string>(
     "Flat No. 664, Spintex, Accra Ghana"

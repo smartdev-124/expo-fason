@@ -61,7 +61,6 @@ export default Discount;
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    // backgroundColor: "aqua",
     marginVertical: 5,
     alignItems: "center",
     justifyContent: "center",
@@ -84,7 +83,6 @@ const styles = StyleSheet.create({
     left: 0,
     height: "100%",
     width: "100%",
-    // backgroundColor: "red",
     paddingVertical: 20,
     paddingLeft: 30,
     zIndex: 10,

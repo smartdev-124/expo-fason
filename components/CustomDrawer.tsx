@@ -1,6 +1,5 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
-import Text from "./Text";
 import {
   DrawerContentComponentProps,
   DrawerContentOptions,
@@ -10,7 +9,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { black } from "../constants/Colors";
 import { height, width } from "../constants/Layout";
 import { DrawerParamList } from "../types";
-import Animated, { Extrapolate } from "react-native-reanimated";
+import Animated from "react-native-reanimated";
 
 interface CustomDrawerProps {
   props: DrawerContentComponentProps<DrawerContentOptions>;

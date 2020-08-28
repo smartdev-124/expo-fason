@@ -7,9 +7,7 @@ import { featured } from "../data/products";
 import { StackScreenProps } from "@react-navigation/stack";
 import { HomeStackParamList } from "../types";
 
-const Featured = ({
-  navigation,
-}: StackScreenProps<HomeStackParamList, "Featured">) => {
+const Featured = ({}: StackScreenProps<HomeStackParamList, "Featured">) => {
   const { top: height } = useSafeAreaInsets();
   return (
     <>
@@ -21,12 +19,7 @@ const Featured = ({
         </Text>
         <View style={styles.content}>
           {featured.map((product, index) => (
-            <ProductCard
-              navigation={navigation}
-              key={index}
-              product={product}
-              noMarginRight={true}
-            />
+            <ProductCard key={index} product={product} noMarginRight={true} />
           ))}
         </View>
       </ScrollView>

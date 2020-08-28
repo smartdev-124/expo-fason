@@ -4,9 +4,7 @@ import { Text, BackHeader, TextField, Button } from "../components";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { white } from "../constants/Colors";
 
-interface ProfileProps {}
-
-const Profile = (props: ProfileProps) => {
+const Profile = () => {
   const { top: height } = useSafeAreaInsets();
   const [email, setEmail] = useState<string>("nelson@gmail.com");
   const [address, setAddress] = useState<string>(

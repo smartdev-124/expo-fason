@@ -2,9 +2,7 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Text } from "../components";
 
-interface SettingsProps {}
-
-const Settings = (props: SettingsProps) => {
+const Settings = () => {
   return (
     <View style={styles.container}>
       <Text size="big" weight="bold">

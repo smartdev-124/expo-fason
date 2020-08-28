@@ -34,6 +34,7 @@ const ProductCard = ({ product, first, noMarginRight }: ProductCardProps) => {
         style={{
           height: IMAGE_HEIGHT,
           width: IMAGE_WIDTH,
+          borderRadius: 5
         }}
       />
       <Text size="small" style={{ marginTop: 5 }}>

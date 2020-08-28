@@ -7,9 +7,10 @@ import { women } from "../data/products";
 import { StackScreenProps } from "@react-navigation/stack";
 import { HomeStackParamList } from "../types";
 
-const WomenCategory = ({
-  navigation,
-}: StackScreenProps<HomeStackParamList, "WomenCategory">) => {
+const WomenCategory = ({}: StackScreenProps<
+  HomeStackParamList,
+  "WomenCategory"
+>) => {
   const { top: height } = useSafeAreaInsets();
   return (
     <>
@@ -21,12 +22,7 @@ const WomenCategory = ({
         </Text>
         <View style={styles.content}>
           {[...women, women[0]].map((product, index) => (
-            <ProductCard
-              navigation={navigation}
-              key={index}
-              product={product}
-              noMarginRight={true}
-            />
+            <ProductCard key={index} product={product} noMarginRight={true} />
           ))}
         </View>
       </ScrollView>

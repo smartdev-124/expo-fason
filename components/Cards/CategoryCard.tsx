@@ -1,11 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Image, ViewStyle } from "react-native";
+import { StyleSheet, Image, ViewStyle } from "react-native";
 import { Category, HomeStackParamList } from "../../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RectButton } from "react-native-gesture-handler";
 import { LinearGradient } from "expo-linear-gradient";
 import Text from "../Text";
-import { height, width } from "../../constants/Layout";
+import { width } from "../../constants/Layout";
 
 interface CategoryCardProps {
   category: Category;

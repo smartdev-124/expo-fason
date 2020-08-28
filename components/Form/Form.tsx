@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { View, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -30,13 +24,18 @@ const Form = ({ navigation, signup }: FormProps) => {
   return (
     <ScrollView>
       <View style={{ ...styles.container, paddingTop }}>
-        <BorderlessButton style={styles.backButton}>
+        <BorderlessButton onPress={navigation.goBack} style={styles.backButton}>
           <Ionicons name="md-arrow-round-back" color={grey} size={26} />
         </BorderlessButton>
         <Text size="big">{signup ? "Sign up" : "Log in"}</Text>
         {signup && <TextField name="name" value={name} setValue={setName} />}
         <TextField name="email" value={email} setValue={setEmail} />
-        <TextField name="password" value={password} setValue={setPassword} />
+        <TextField
+          name="password"
+          value={password}
+          setValue={setPassword}
+          password
+        />
         <Button
           label={signup ? "Sign up" : "Log in"}
           onPress={() =>
@@ -78,21 +77,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginVertical: 30,
     justifyContent: "center",
-  },
-  inputContainer: {
-    marginVertical: 5,
-  },
-  textInputContainer: {
-    flexDirection: "row",
-    borderBottomWidth: StyleSheet.hairlineWidth * 2,
-    borderBottomColor: grey,
-    height: 45,
-  },
-  textInput: {
-    flex: 1,
-    height: "100%",
-    fontSize: 20,
-    fontFamily: "SFProDisplay-Regular",
   },
   row: {
     flexDirection: "row",

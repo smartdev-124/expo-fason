@@ -13,7 +13,6 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { white, grey, blue } from "../constants/Colors";
 import { useAppContext } from "../context/Context";
 import { address } from "../data/address";
-import { BorderlessButton } from "react-native-gesture-handler";
 
 const RADIO_BUTTON_SIZE = 20;
 

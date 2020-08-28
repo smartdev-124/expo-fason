@@ -32,7 +32,7 @@ const Provider = ({ children }: Props) => {
 
   const manageCart = (action: string, product?: ProductProps) => {
     let tempCart: ProductProps[] = [];
-    let updatedProduct: ProductProps = {};
+    let updatedProduct: any = {};
     let updatedProductIndex = 0;
     switch (action) {
       case "ADD":

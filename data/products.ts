@@ -86,6 +86,59 @@ export const women: ProductProps[] = [
   },
 ];
 
+export const kids: ProductProps[] = [
+  {
+    id: Math.random().toString(),
+    name: "Kids Clothing",
+    price: 34,
+    image: require("../assets/images/kids-1.jpg"),
+    details:
+      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.",
+    count: 0,
+    total: 0,
+  },
+  {
+    id: Math.random().toString(),
+    name: "Kids Clothing",
+    price: 55,
+    image: require("../assets/images/kids-2.jpg"),
+    details:
+      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.",
+    count: 0,
+    total: 0,
+  },
+  {
+    id: Math.random().toString(),
+    name: "Kids Clothing",
+    price: 55,
+    image: require("../assets/images/kids-3.jpg"),
+    details:
+      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.",
+    count: 0,
+    total: 0,
+  },
+  {
+    id: Math.random().toString(),
+    name: "Kids Clothing",
+    price: 55,
+    image: require("../assets/images/kids-4.jpg"),
+    details:
+      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.",
+    count: 0,
+    total: 0,
+  },
+  {
+    id: Math.random().toString(),
+    name: "Kids Clothing",
+    price: 55,
+    image: require("../assets/images/kids-5.jpg"),
+    details:
+      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.",
+    count: 0,
+    total: 0,
+  },
+];
+
 export const featured: ProductProps[] = [
   {
     id: Math.random().toString(),

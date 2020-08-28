@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  Text,
-  StyleSheet,
-  ViewStyle,
-  View,
-  TouchableOpacity,
-} from "react-native";
-import { RectButton } from "react-native-gesture-handler";
+import { Text, StyleSheet, ViewStyle, TouchableOpacity } from "react-native";
 import { width } from "../../constants/Layout";
-import { white, black, blue } from "../../constants/Colors";
+import { blue } from "../../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 
 interface DottedButtonProps {

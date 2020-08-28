@@ -7,9 +7,7 @@ import { bestsell } from "../data/products";
 import { StackScreenProps } from "@react-navigation/stack";
 import { HomeStackParamList } from "../types";
 
-const BestSell = ({
-  navigation,
-}: StackScreenProps<HomeStackParamList, "BestSell">) => {
+const BestSell = ({}: StackScreenProps<HomeStackParamList, "BestSell">) => {
   const { top: height } = useSafeAreaInsets();
   return (
     <>
@@ -21,12 +19,7 @@ const BestSell = ({
         </Text>
         <View style={styles.content}>
           {bestsell.map((product, index) => (
-            <ProductCard
-              navigation={navigation}
-              key={index}
-              product={product}
-              noMarginRight={true}
-            />
+            <ProductCard key={index} product={product} noMarginRight={true} />
           ))}
         </View>
       </ScrollView>

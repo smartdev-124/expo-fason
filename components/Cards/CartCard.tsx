@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
-import { HomeStackParamList, ProductProps } from "../../types";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { ProductProps } from "../../types";
 import Text from "../Text";
 import { width } from "../../constants/Layout";
 import { Ionicons, AntDesign } from "@expo/vector-icons";

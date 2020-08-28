@@ -7,8 +7,6 @@ import { useAppContext } from "../context/Context";
 import { StackScreenProps } from "@react-navigation/stack";
 import { CartStackParamList } from "../types";
 
-interface CartProps {}
-
 const Cart = ({ navigation }: StackScreenProps<CartStackParamList, "Cart">) => {
   const { top: height } = useSafeAreaInsets();
   const { cart } = useAppContext();

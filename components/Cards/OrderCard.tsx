@@ -1,11 +1,9 @@
 import React from "react";
-import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { ProductProps } from "../../types";
 import Text from "../Text";
 import { width } from "../../constants/Layout";
-import { Ionicons } from "@expo/vector-icons";
-import { grey, lightgrey, blue } from "../../constants/Colors";
-import { useAppContext } from "../../context/Context";
+import { blue } from "../../constants/Colors";
 import { RectButton } from "react-native-gesture-handler";
 
 interface OrderCardProps {
@@ -16,8 +14,7 @@ interface OrderCardProps {
 const IMAGE_SIZE = width * 0.3;
 
 const OrderCard = ({ product, first }: OrderCardProps) => {
-  const { manageCart } = useAppContext();
-  const { name, price, image, count } = product;
+  const { name, price, image } = product;
 
   return (
     <View
